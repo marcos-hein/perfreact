@@ -6,12 +6,16 @@ interface ProductItemProps {
     price: number;
     title: string;
   };
+  addToWishList: (id: number) => void;
 }
 
-function ProductItemComponent({ product }: ProductItemProps) {
+function ProductItemComponent({ product, addToWishList }: ProductItemProps) {
   return (
     <div>
       {product.title} - <strong>{product.price}</strong>
+      <button onClick={() => addToWishList(product.id)}>
+        Add to wish list
+      </button>
     </div>
   );
 }
