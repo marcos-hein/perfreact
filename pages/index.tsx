@@ -26,7 +26,7 @@ const Home: NextPage = () => {
       currency: "BRL",
     });
 
-    const products = data.map((product) => {
+    const products = data.map((product: any) => {
       return {
         id: product.id,
         title: product.title,
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
       };
     });
 
-    const totalPrice = data.reduce((total, product) => {
+    const totalPrice = data.reduce(({ total, product }: any) => {
       return total + product.price;
     }, 0);
 

@@ -5,6 +5,7 @@ interface SearchResultsProps {
   results: Array<{
     id: number;
     price: number;
+    priceFormatted: string;
     title: string;
   }>;
   totalPrice: number;
@@ -15,7 +16,7 @@ export function SearchResults({
   results,
   totalPrice,
   addToWishList,
-}: SearchResultsProps) {
+}: SearchResultsProps): JSX.Element {
   const rowRerender: ListRowRenderer = ({ index, key, style }) => {
     return (
       <div key={key} style={style}>
@@ -28,22 +29,22 @@ export function SearchResults({
     <div>
       <h2>{totalPrice}</h2>
 
-      <List
+      {/* <List
         height={300}
         rowHeight={30}
         width={900}
         overscanRowCount={5}
         rowCount={results.length}
         rowRenderer={rowRerender}
-      />
+      /> */}
 
-      {/* {results.map((product) => (
+      {results.map((product) => (
         <ProductItem
           key={product.id}
           product={product}
           addToWishList={addToWishList}
         />
-      ))} */}
+      ))}
     </div>
   );
 }
